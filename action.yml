@@ -1,6 +1,6 @@
-name: GitHub Actions Slack
-description: Notify Slack of GitHub Actions workflows
-author: 719media
+name: slack - GitHub Actions Slack integration
+description: Notify Slack of GitHub Actions workflows, jobs and step status.
+author: satterly
 inputs:
   status:
     description: Specify success, failure, cancelled or a custom status.
