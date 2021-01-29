@@ -1,4 +1,4 @@
-name: slack - GitHub Actions Slack integration
+name: github actions slack
 description: Notify Slack of GitHub Actions workflows, jobs and step status.
 author: satterly
 inputs:
