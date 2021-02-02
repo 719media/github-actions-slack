@@ -15,7 +15,7 @@ inputs:
     description: Override default channel with different channel or username
     required: false
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
 branding:
   icon: alert-circle
