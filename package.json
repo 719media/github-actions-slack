@@ -26,6 +26,7 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@octokit/webhooks": "^7.21.0",
+    "@octokit/webhooks-definitions": "3.57.0",
     "@slack/webhook": "^6.0.0",
     "flow-bin": "^0.143.1",
     "graphql": "^15.5.0"
