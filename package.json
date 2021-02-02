@@ -11,7 +11,7 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts",
     "pack": "ncc build",
-    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
+    "all": "npm run build && npm run format && npm run lint && npm run pack"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@octokit/webhooks": "^7.21.0",
-    "@octokit/webhooks-definitions": "3.57.0",
+    "@octokit/webhooks-definitions": "^3.57.0",
     "@slack/webhook": "^6.0.0",
     "flow-bin": "^0.143.1",
     "graphql": "^15.5.0"
