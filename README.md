@@ -1,4 +1,4 @@
-![build-test](https://github.com/719media/slack/workflows/build-test/badge.svg)
+![build-test](https://github.com/719media/slack/workflows/build/badge.svg)
 
 # Slack messages for GitHub Action workflows, jobs and steps
 
@@ -6,20 +6,15 @@ A simple and flexible Slack integration with GitHub Actions.
 
 ## Configuration
 
-### Environment Variables (`env`)
+### Input Parameters (`with`)
 
-#### `SLACK_WEBHOOK_URL` (required)
+#### `url` (required)
 
 Create a Slack Webhook URL using either the
 [Incoming Webhooks App](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?next_id=0)
 (preferred) or by attaching an incoming webhook to an existing
 [Slack App](https://api.slack.com/apps) (beware, channel override not possible
 when using a Slack App):
-
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-### Input Parameters (`with`)
 
 #### `status` (required)
 

@@ -12,7 +12,7 @@ async function run(): Promise<void> {
     const readEvent = (): object => JSON.parse(readFileSync(event, 'utf8'))
     core.debug(JSON.stringify(readEvent()))
 
-    const url = process.env.SLACK_WEBHOOK_URL as string
+    const url = core.getInput('url', {required: true})
     const jobName = process.env.GITHUB_JOB as string
     const jobStatus = core.getInput('status', {required: true}).toUpperCase()
     const jobSteps = JSON.parse(core.getInput('steps', {required: false}) || '{}')

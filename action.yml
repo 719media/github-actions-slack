@@ -1,6 +1,6 @@
 name: github actions slack
 description: Notify Slack of GitHub Actions workflows, jobs and step status.
-author: satterly
+author: 719media
 inputs:
   status:
     description: Specify success, failure, cancelled or a custom status.
@@ -12,7 +12,7 @@ inputs:
     description: Override default channel with different channel or username
     required: false
 runs:
-  using: 'node12'
+  using: 'node14'
   main: 'dist/index.js'
 branding:
   icon: alert-circle
