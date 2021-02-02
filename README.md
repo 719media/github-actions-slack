@@ -4,8 +4,6 @@
 
 A simple and flexible Slack integration with GitHub Actions.
 
-<img src="./docs/images/example1.png" width="540" title="Slack Example #1">
-
 ## Configuration
 
 ### Environment Variables (`env`)
@@ -114,7 +112,7 @@ or
     - uses: 719media/slack@v1
       with: 
         status: ${{ job.status }}
-        channel: '@nick'
+        channel: '@test'
 
 ### Complete example
 
@@ -137,11 +135,14 @@ or
               status: starting
               channel: '#workflows'
             if: always()
+
           - name: Checkout
             uses: actions/checkout@v2
+
           - name: Variables
             id: vars
             run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
+
           - name: Build image
             id: docker-build
             run: >-
@@ -149,11 +150,13 @@ or
               -t $IMAGE_NAME
               -t $REPOSITORY_URL/$IMAGE_NAME:${{ steps.vars.outputs.SHORT_COMMIT_ID }}
               -t $REPOSITORY_URL/$IMAGE_NAME:latest .
+
           - name: Docker Login
             env:
               DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
               DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
             run: docker login $REPOSITORY_URL --username "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
+
           - name: Publish Image
             id: docker-push
             run: docker push $REPOSITORY_URL/$IMAGE_NAME
@@ -164,10 +167,6 @@ or
               steps: ${{ toJson(steps) }}
               channel: '#workflows'
             if: always()
-
-The above "Docker Build and Push" workflow will appear in Slack as:
-
-<img src="./docs/images/example2.png" width="700" title="Slack Example #2">
 
 ## Troubleshooting
 
@@ -186,7 +185,3 @@ See https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-ru
 * Env vars https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
 * Webhook Payloads https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads#webhook-payload-object-common-properties
 * GitHub Actions Cheat Sheet https://github.github.io/actions-cheat-sheet/actions-cheat-sheet.html
-
-## License
-
-Copyright (c) 2020 Nick Satterly. Available under the MIT License.
